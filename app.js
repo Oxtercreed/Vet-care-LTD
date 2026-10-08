@@ -264,6 +264,9 @@ function initServiceModal() {
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    window.scrollTo({ left: 0, top: window.scrollY });
+    document.documentElement.scrollLeft = 0;
+    document.body.scrollLeft = 0;
   }
 
   // Attach click listener to each card
@@ -457,6 +460,9 @@ function initFullscreenBookingSystem() {
     const anyActive = document.querySelector('.fullscreen-booking-modal.active, .service-modal-overlay.active');
     if (!anyActive) {
       document.body.style.overflow = '';
+      window.scrollTo({ left: 0, top: window.scrollY });
+      document.documentElement.scrollLeft = 0;
+      document.body.scrollLeft = 0;
     }
   }
 

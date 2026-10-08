@@ -55,6 +55,9 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -62,7 +65,11 @@ body {
   background-color: var(--bg-cream);
   color: var(--text-muted);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
 }
 
 img {
@@ -2003,55 +2010,154 @@ a.visit-detail-item:hover .visit-detail-text {
 
   /* Modal Responsiveness - Well-Framed Photos & Balanced Padding */
   .service-modal-overlay {
-    padding: 1rem;
+    padding: 0.75rem;
     align-items: flex-end;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .service-modal-box {
-    max-height: 88vh;
+    max-height: 90vh;
     border-radius: 24px 24px 18px 18px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
   }
 
   .modal-media-header {
-    height: 215px;
+    height: 210px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .modal-service-img {
     object-position: center 15%;
   }
 
+  .modal-badge-row {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .modal-cat-badge,
+  .modal-badge-sub {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
   .modal-content-body {
-    padding: 1.5rem 1.35rem 1.75rem;
+    padding: 1.25rem 1rem 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .modal-header-info {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .modal-title {
+    font-size: 1.55rem;
+    line-height: 1.22;
+    word-break: break-word;
+  }
+
+  .modal-spec-row {
+    gap: 0.4rem 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
   }
 
   .modal-price-box {
     width: 100%;
-    text-align: left;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    padding: 0.75rem 0.95rem;
+    border-radius: 14px;
+    text-align: left;
   }
 
-  .price-figure {
-    font-size: 1.25rem;
+  .modal-price-box .price-caption {
+    font-size: 0.68rem;
     margin: 0;
+  }
+
+  .modal-price-box .price-figure {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .modal-price-box .price-subtext {
+    width: 100%;
+    font-size: 0.72rem;
+    color: #556860;
+    margin-top: 0.15rem;
+  }
+
+  .modal-section-block {
+    margin-bottom: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .modal-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .modal-checklist li {
+    font-size: 0.88rem;
   }
 
   .modal-footer-action {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    padding-top: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .modal-cta-btn,
+  .modal-cta-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.35;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
   .modal-close-secondary {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: center;
+    justify-content: center;
   }
 }
 
@@ -2098,12 +2204,38 @@ a.visit-detail-item:hover .visit-detail-text {
     gap: 1.25rem;
   }
 
+  .service-modal-overlay {
+    padding: 0.45rem;
+  }
+
+  .service-modal-box {
+    border-radius: 20px 20px 14px 14px;
+    max-height: 92vh;
+  }
+
+  .modal-content-body {
+    padding: 1.1rem 0.85rem 1.35rem;
+  }
+
   .modal-title {
-    font-size: 1.55rem;
+    font-size: 1.4rem;
   }
 
   .modal-media-header {
-    height: 205px;
+    height: 185px;
+  }
+
+  .modal-price-box {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .modal-price-box .price-figure {
+    font-size: 1.15rem;
+  }
+
+  .modal-cta-btn {
+    font-size: 0.86rem;
+    padding: 0.8rem 0.9rem;
   }
 }
 
@@ -2244,17 +2376,28 @@ a.visit-detail-item:hover .visit-detail-text {
   position: fixed;
   inset: 0;
   width: 100%;
+  max-width: 100%;
   height: 100vh;
   z-index: 2200;
   background-color: var(--bg-cream);
   overflow-y: auto;
   overflow-x: hidden;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
   display: flex;
   flex-direction: column;
+}
+
+.portal-back-text-full {
+  display: inline;
+}
+
+.portal-back-text-short {
+  display: none;
 }
 
 .fullscreen-booking-modal.active {
@@ -3493,38 +3636,125 @@ a.visit-detail-item:hover .visit-detail-text {
   border-radius: var(--radius-full);
 }
 
-/* Responsive Modal Styling */
+/* Responsive Modal Styling for Dedicated Page-Feel Booking Flow */
 @media (max-width: 900px) {
+  .booking-portal-header {
+    padding: 0.85rem 0;
+  }
+
+  .booking-header-flex {
+    padding: 0 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .booking-portal-main {
+    padding: 2.25rem 0 4.5rem;
+  }
+
+  .booking-portal-container {
+    padding: 0 1.25rem;
+  }
+
+  .booking-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
   .patient-page-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
+
   .patient-summary-column {
     position: static;
   }
+
+  .date-ribbon-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
   .date-ribbon-7days {
     display: flex;
     overflow-x: auto;
     gap: 0.65rem;
     padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
+    box-sizing: border-box;
   }
+
   .date-ribbon-7days .date-card-pill {
     flex: 0 0 78px;
     width: 78px;
   }
+
   .booking-stepper-track .step-title {
     display: none;
   }
+
   .booking-stepper-track {
     gap: 0.35rem;
   }
+
   .step-connector {
     width: 14px;
   }
+
   .pass-details-grid {
     grid-template-columns: 1fr;
     gap: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-portal-header {
+    padding: 0.75rem 0;
+  }
+
+  .booking-header-flex {
+    padding: 0 1rem;
+    gap: 0.5rem;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .booking-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .schedule-card-panel,
+  .patient-form-card,
+  .patient-summary-card,
+  .clinic-appointment-pass {
+    padding: 1.35rem 1.15rem;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .confirmed-action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .pass-action-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .booking-sticky-dock {
+    padding: 0.85rem 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -3535,38 +3765,358 @@ a.visit-detail-item:hover .visit-detail-text {
     align-items: flex-start;
     gap: 0.65rem;
   }
+
   .rating-action-wrap {
     margin-left: 0;
     width: 100%;
   }
+
   .rating-banner-btn {
     width: 100%;
     justify-content: center;
   }
+
   .nav-book-cta {
     display: none;
   }
+
+  /* Booking Portal Header on Mobile */
+  .booking-header-flex {
+    padding: 0 0.85rem;
+    gap: 0.4rem;
+  }
+
+  .booking-portal-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .booking-brand-title {
+    font-size: 0.95rem;
+  }
+
+  .booking-brand-sub {
+    display: none;
+  }
+
+  .portal-back-text-full {
+    display: none;
+  }
+
+  .portal-back-text-short {
+    display: inline;
+  }
+
+  .btn-portal-back {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+    gap: 0.3rem;
+  }
+
+  .btn-portal-exit {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+    gap: 0.3rem;
+  }
+
+  .booking-stepper-track {
+    gap: 0.25rem;
+  }
+
+  .booking-step-item .step-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
+  }
+
+  .step-connector {
+    width: 9px;
+  }
+
+  /* Booking Main & Headlines */
+  .booking-portal-main {
+    padding: 1.5rem 0 4rem;
+  }
+
+  .booking-portal-container {
+    padding: 0 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .booking-hero-headline {
+    margin-bottom: 1.35rem;
+  }
+
   .booking-page-title {
+    font-size: 1.65rem;
+    line-height: 1.22;
+    margin-bottom: 0.45rem;
+  }
+
+  .booking-page-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .booking-filter-chips {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.35rem;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .booking-filter-chip {
+    flex-shrink: 0;
+    padding: 0.42rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  /* Step 2: Date & Time Picker */
+  .selected-service-pill-banner {
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.35rem;
+  }
+
+  .pill-banner-change-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .schedule-card-panel,
+  .patient-form-card,
+  .patient-summary-card,
+  .clinic-appointment-pass {
+    padding: 1.2rem 0.9rem;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .schedule-panel-header,
+  .patient-card-header {
+    gap: 0.65rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .schedule-panel-title {
+    font-size: 1.15rem;
+  }
+
+  .schedule-panel-sub {
+    font-size: 0.78rem;
+  }
+
+  .date-ribbon-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .date-ribbon-7days {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.45rem;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .date-ribbon-7days .date-card-pill {
+    flex: 0 0 72px;
+    width: 72px;
+    padding: 0.75rem 0.2rem;
+    border-radius: 14px;
+    scroll-snap-align: start;
+  }
+
+  .date-card-pill .date-pill-num {
+    font-size: 1.35rem;
+  }
+
+  .manual-date-picker-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .manual-date-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 16px !important;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.55rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .time-slot-btn {
+    padding: 0.65rem 0.35rem;
+    font-size: 0.8rem;
+  }
+
+  /* Step 3: Patient Form - Crucial 1-column Stack & iOS Zoom Prevention */
+  .form-fields-2col {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-field-input,
+  .form-field-select,
+  .form-field-textarea {
+    font-size: 16px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-complete-booking {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .summary-item-row {
+    font-size: 0.84rem;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .summary-val {
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .live-summary-price-row {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+  }
+
+  .live-price-figure {
+    font-size: 1.25rem;
+  }
+
+  .summary-edit-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .btn-edit-step {
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Step 4: Pass Card */
+  .confirmed-hero-title {
     font-size: 1.85rem;
   }
-  .booking-cards-grid {
-    grid-template-columns: 1fr;
-  }
-  .dock-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .dock-next-btn {
-    flex: 1;
-  }
+
   .clinic-appointment-pass {
-    padding: 1.4rem;
+    padding: 1.15rem 0.85rem;
   }
+
+  .pass-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
   .pass-ref-badge {
     text-align: left;
     width: 100%;
+    padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
   }
-  .confirmed-hero-title {
-    font-size: 2rem;
+
+  .pass-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pass-detail-cell {
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(20, 56, 44, 0.08);
+  }
+
+  .pass-card-instructions {
+    padding: 0.85rem 0.95rem;
+    font-size: 0.82rem;
+  }
+
+  /* Bottom Selection Sticky Dock */
+  .booking-sticky-dock {
+    padding: 0.75rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .booking-dock-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dock-summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+  }
+
+  .dock-hint-tag {
+    font-size: 0.65rem;
+  }
+
+  .dock-summary-text {
+    font-size: 1.05rem;
+  }
+
+  .dock-actions {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .dock-back-btn {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+
+  .dock-next-btn {
+    padding: 0.7rem 1.15rem;
+    font-size: 0.88rem;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
