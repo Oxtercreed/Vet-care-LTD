@@ -24,7 +24,7 @@
   <!-- ==========================================================================
        TOP NAVIGATION
        ========================================================================== -->
-  <header class="navbar">
+  <header class="navbar" id="siteNavbar">
     <div class="container navbar-inner">
       <!-- Logo Group -->
       <a href="#" class="brand-group" aria-label="Vet Care LTD">
@@ -35,20 +35,25 @@
         </div>
       </a>
 
-      <!-- Center Links -->
-      <nav>
-        <ul class="nav-links">
+      <!-- Center Links (Desktop & Mobile Dropdown) -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links" id="navLinks">
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#approach" class="nav-link">Our approach</a></li>
           <li><a href="#faq" class="nav-link">FAQs</a></li>
         </ul>
       </nav>
 
-      <!-- Right Action -->
-      <div>
+      <!-- Right Action Group -->
+      <div class="nav-actions">
         <a href="#visit" class="nav-cta">
           Visit us &rarr;
         </a>
+        <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -716,17 +721,19 @@
 
         <!-- Detailed Description -->
         <div class="modal-section-block">
-          <h4 class="modal-block-title">Overview &amp; Clinical Focus</h4>
+          <h4 class="modal-block-title">Overview</h4>
           <p class="modal-desc" id="modalServiceDesc">
-            Our gentle head-to-tail wellness examination evaluates every aspect of your companion's vitality. From cardiovascular rhythm and respiratory clarity to weight trends, coat condition, and joint mobility, we ensure potential issues are caught early in a calm, stress-free setting.
+            Comprehensive nose-to-tail checkup to evaluate your pet's overall health and catch potential issues early.
           </p>
         </div>
 
         <!-- What's Included -->
         <div class="modal-section-block">
-          <h4 class="modal-block-title">What's Included in This Visit</h4>
+          <h4 class="modal-block-title">What's Included</h4>
           <ul class="modal-checklist" id="modalServiceIncludes">
-            <!-- Populated dynamically via JS -->
+            <li><span class="check-bullet">&#10003;</span> <span>Complete physical exam &amp; vital signs</span></li>
+            <li><span class="check-bullet">&#10003;</span> <span>Weight &amp; nutritional guidance</span></li>
+            <li><span class="check-bullet">&#10003;</span> <span>Heart, lungs, eyes &amp; ears evaluation</span></li>
           </ul>
         </div>
 

@@ -15,13 +15,11 @@ const SERVICES_DATA = {
     image: 'assets/images/service-wellness.jpg',
     duration: '30 - 45 Minutes',
     suitability: 'Dogs & Cats of All Ages',
-    desc: "Our gentle nose-to-tail wellness examination evaluates every aspect of your companion's vitality. From cardiovascular rhythm and respiratory clarity to weight trends, coat condition, and joint mobility, we ensure potential health issues are identified early in a calm, stress-free clinical setting.",
+    desc: "Comprehensive nose-to-tail checkup to evaluate your pet's overall health and catch potential issues early.",
     includes: [
-      'Comprehensive 12-point physical examination & vitals assessment',
-      'Weight, body condition score & tailored nutritional guidance',
-      'Ophthalmic (eyes), otic (ears), and oral mucous membrane checks',
-      'Heart rhythm & lung sound stethoscope auscultation',
-      'Personalized lifetime wellness plan & preventative care consultation'
+      'Complete physical examination & vital signs',
+      'Weight check & tailored nutritional advice',
+      'Heart, lungs, eyes, ears & dental check'
     ]
   },
   vaccines: {
@@ -32,13 +30,11 @@ const SERVICES_DATA = {
     image: 'assets/images/service-vaccine.jpg',
     duration: '20 - 30 Minutes',
     suitability: 'Puppies, Kittens, Adult Dogs & Cats',
-    desc: 'Protect your pet against fatal viral diseases prevalent in coastal Tanzania (such as Rabies, Canine Parvovirus, Distemper, Hepatitis, and Feline Panleukopenia). Includes gentle booster administration, official veterinary vaccine certificate, and tailored parasite protection.',
+    desc: 'Essential core vaccinations and parasite protection to keep your pet protected year-round.',
     includes: [
-      'Core 5-in-1 / 7-in-1 viral vaccine booster (DHLPP / FVRCP)',
-      'Official Rabies immunization certificate with clinic validation stamp',
-      'Broad-spectrum oral deworming tablet administration',
-      'Tick, flea, and heartworm preventative consultation & treatment',
-      'Pre-vaccination temperature and health screening'
+      'Core viral booster (DHLPP / FVRCP)',
+      'Official Rabies immunization certificate',
+      'Broad-spectrum deworming & tick/flea prevention'
     ]
   },
   dental: {
@@ -49,13 +45,11 @@ const SERVICES_DATA = {
     image: 'assets/images/service-dental.jpg',
     duration: '45 - 60 Minutes',
     suitability: 'Adult & Senior Dogs & Cats',
-    desc: 'Periodontal disease is the #1 preventable health problem affecting domestic pets. Our ultrasonic dental scaling safely eliminates calcified plaque, tartar buildup, and foul breath bacteria, preventing premature tooth loss and protecting internal organs from systemic strain.',
+    desc: 'Safe ultrasonic cleaning and polishing to remove tartar, prevent gum disease, and keep breath fresh.',
     includes: [
-      'Ultrasonic supragingival and subgingival plaque scaling',
-      'Enamel polishing to smooth surfaces and retard future plaque adhesion',
-      'Gingivitis assessment, periodontal pocket inspection & oral exam',
-      'Antiseptic oral rinse & deodorizing veterinary mouth wash',
-      'Home dental care guidance & recommended dental chews'
+      'Ultrasonic tartar & plaque scaling',
+      'Gentle tooth polishing & oral rinse',
+      'Gingivitis check & home dental advice'
     ]
   },
   diagnostics: {
@@ -65,14 +59,12 @@ const SERVICES_DATA = {
     price: 'From TZS 60,000',
     image: 'assets/images/service-diagnostics.jpg',
     duration: '30 - 60 Minutes',
-    suitability: 'Illness Investigation, Senior Wellness, or Annual Screen',
-    desc: 'When pets are unwell, prompt answers provide peace of mind and speed recovery. Our clinic is equipped with high-resolution abdominal ultrasound imaging and in-house diagnostic blood analyzers for rapid, reliable same-day clinical insights.',
+    suitability: 'Illness Investigation or Annual Screen',
+    desc: 'Fast, precise in-house diagnostics and imaging for quick answers and effective care.',
     includes: [
-      'High-resolution abdominal organ ultrasound examination',
-      'Complete Blood Count (CBC) and essential organ biochemistry panel',
-      'Tick-borne parasite blood smear examination (Ehrlichia / Babesia)',
-      'Rapid infectious disease antigen screening cassettes',
-      'Same-day veterinary diagnostic review & immediate treatment roadmap'
+      'High-resolution abdominal ultrasound scan',
+      'Complete Blood Count (CBC) & organ chemistry',
+      'Rapid tick-borne parasite & viral testing'
     ]
   },
   grooming: {
@@ -83,13 +75,11 @@ const SERVICES_DATA = {
     image: 'assets/images/service-grooming.jpg',
     duration: '45 - 75 Minutes',
     suitability: 'All Breeds & Fur Types (Dogs & Cats)',
-    desc: 'A therapeutic, stress-free grooming experience formulated specifically for dermatological health and coat vitality. We utilize veterinary-prescribed hypoallergenic and antimicrobial shampoos to soothe sensitive skin, eliminate parasites, and keep coats fresh.',
+    desc: 'Gentle therapeutic baths and grooming to soothe sensitive skin and maintain coat vitality.',
     includes: [
-      'Warm hydro-massage bath with veterinary medicated shampoo',
-      'Protective anti-tick and anti-flea dip / rinse',
-      'Gentle hygienic sanitary trim & paw pad feather clipping',
-      'Deep ear canal flush & debris cleansing',
-      'Safe nail trimming & organic nourishing paw balm application'
+      'Medicated wash & anti-tick/flea treatment',
+      'Ear cleaning & safe nail trim',
+      'Hygienic sanitary trim & paw pad care'
     ]
   }
 };
@@ -107,18 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+  const navMenu = document.getElementById('navMenu');
 
-  if (!menuToggle || !navLinks) return;
+  if (!menuToggle || !navMenu) return;
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-open');
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('mobile-open');
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  navLinks.querySelectorAll('a').forEach(link => {
+  navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('mobile-open');
+      navMenu.classList.remove('mobile-open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      navMenu.classList.remove('mobile-open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 }
 
