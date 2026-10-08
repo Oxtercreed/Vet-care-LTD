@@ -46,6 +46,9 @@
 
       <!-- Right Action Group -->
       <div class="nav-actions">
+        <button type="button" class="btn-terracotta nav-book-cta" id="navBookBtn">
+          Book appointment
+        </button>
         <a href="#visit" class="nav-cta">
           Visit us &rarr;
         </a>
@@ -109,6 +112,27 @@
           <div class="trust-item">
             <span class="trust-badge-icon">&#10003;</span>
             Pet-first care
+          </div>
+        </div>
+
+        <!-- Rating & Social Proof Banner (Hero Position) -->
+        <div class="hero-rating-banner" id="heroRatingBanner" role="region" aria-label="Customer Rating & Reviews">
+          <div class="hero-rating-inner">
+            <div class="rating-badge-group">
+              <span class="rating-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-score">4.9 / 5.0</span>
+              <span class="rating-tag">Top-Rated Clinic</span>
+            </div>
+            <div class="rating-text-wrap">
+              <span>Loved by <strong>280+ happy pet parents</strong> in Dar es Salaam</span>
+              <span class="rating-bullet-sep">&bull;</span>
+              <span class="rating-clinic-loc">Migombani St, Mikocheni</span>
+            </div>
+            <div class="rating-action-wrap">
+              <button type="button" class="rating-banner-btn" id="ratingBannerBookBtn">
+                Book an appointment &rarr;
+              </button>
+            </div>
           </div>
         </div>
 
@@ -662,6 +686,7 @@
           <li><a href="#services" class="footer-link">Services</a></li>
           <li><a href="#approach" class="footer-link">Our approach</a></li>
           <li><a href="#faq" class="footer-link">FAQs</a></li>
+          <li><button type="button" class="footer-link footer-book-btn" id="footerBookBtn">Book an appointment</button></li>
           <li><a href="https://www.google.com/maps/place/Vet+Care+Ltd/@-6.7716867,39.2575575,17z/data=!3m1!4b1!4m6!3m5!1s0x185c4c47110015ed:0x29e5bc49e1eab14a!8m2!3d-6.7716867!4d39.2601324!16s%2Fg%2F1tgm079c?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="footer-link">Google Maps</a></li>
         </ul>
       </div>
@@ -739,13 +764,15 @@
 
         <!-- Action / Booking Row -->
         <div class="modal-footer-action">
-          <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-chat modal-cta-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.98-.276-.1-.477-.15-.678.15-.201.3-.778.98-.954 1.18-.176.2-.352.226-.653.075-1.52-.76-2.522-1.356-3.535-3.096-.268-.46.268-.427.768-1.428.084-.176.042-.327-.021-.477-.063-.15-.678-1.633-.929-2.236-.245-.588-.493-.508-.678-.518l-.578-.01c-.2 0-.527.075-.803.376-.276.301-1.055 1.03-1.055 2.511s1.08 2.912 1.231 3.113c.15.2 2.125 3.245 5.148 4.551 1.82.787 2.535.857 3.447.722.98-.145 2.125-.869 2.426-1.708.301-.839.301-1.558.211-1.708-.09-.15-.291-.24-.592-.39z"/>
-              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.954.562 3.778 1.533 5.323L2 22l4.823-1.503C8.318 21.463 10.106 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.674 0-3.235-.487-4.557-1.328l-.326-.208-2.86.891.898-2.788-.225-.347C4.045 15.068 3.5 13.578 3.5 12c0-4.687 3.813-8.5 8.5-8.5 4.687 0 8.5 3.813 8.5 8.5 0 4.687-3.813 8.5-8.5 8.5z"/>
+          <button type="button" class="btn-terracotta modal-cta-btn" id="modalBookServiceBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            Inquire on WhatsApp (Vet Care LTD)
-          </a>
+            Book Appointment for this Service &rarr;
+          </button>
           <button type="button" class="btn-outline modal-close-secondary" id="modalCloseSecondaryBtn">
             Dismiss
           </button>
@@ -753,6 +780,757 @@
 
       </div>
     </div>
+  </div>
+
+  <!-- ==========================================================================
+       FULLSCREEN BOOKING MODAL 1: CHOOSE SERVICE (PAGE-FEEL MODAL)
+       ========================================================================== -->
+  <div class="fullscreen-booking-modal" id="bookingServiceModal" role="dialog" aria-modal="true" aria-labelledby="bookingModal1Heading" aria-hidden="true">
+    <!-- Modal Sticky Top Bar -->
+    <header class="booking-portal-header">
+      <div class="container booking-header-flex">
+        <div class="booking-portal-brand">
+          <img src="assets/images/logo.png" alt="Vet Care LTD" class="booking-portal-logo">
+          <div>
+            <div class="booking-brand-title">Vet Care LTD</div>
+            <div class="booking-brand-sub">Online Booking Desk &bull; Migombani St</div>
+          </div>
+        </div>
+
+        <!-- Stepper Indicator -->
+        <div class="booking-stepper-track" aria-label="Booking Progress">
+          <div class="booking-step-item active">
+            <span class="step-badge">1</span>
+            <span class="step-title">Service</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">2</span>
+            <span class="step-title">Date &amp; Time</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">3</span>
+            <span class="step-title">Pet Info</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">4</span>
+            <span class="step-title">Confirmed</span>
+          </div>
+        </div>
+
+        <!-- Close / Exit Button -->
+        <button type="button" class="btn-portal-exit" id="closeBookingModal1" aria-label="Close booking and return to website">
+          <span>Exit</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Modal Page Content -->
+    <main class="booking-portal-main">
+      <div class="container booking-portal-container">
+        
+        <!-- Header Banner -->
+        <div class="booking-hero-headline">
+          <div class="booking-eyebrow-pill">STEP 1 OF 3 &bull; COMPASSIONATE CARE</div>
+          <h1 class="booking-page-title" id="bookingModal1Heading">
+            What can we help your companion with today?
+          </h1>
+          <p class="booking-page-desc">
+            Select a care service below. Every consultation includes physical examination, vital checks, and gentle, stress-free handling.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="booking-filter-chips" role="tablist" aria-label="Filter veterinary services">
+          <button type="button" class="booking-filter-chip active" data-bfilter="all" role="tab" aria-selected="true">
+            All Services (5)
+          </button>
+          <button type="button" class="booking-filter-chip" data-bfilter="wellness" role="tab" aria-selected="false">
+            Wellness
+          </button>
+          <button type="button" class="booking-filter-chip" data-bfilter="vaccines" role="tab" aria-selected="false">
+            Prevention
+          </button>
+          <button type="button" class="booking-filter-chip" data-bfilter="dental" role="tab" aria-selected="false">
+            Dental
+          </button>
+          <button type="button" class="booking-filter-chip" data-bfilter="diagnostics" role="tab" aria-selected="false">
+            Diagnostics
+          </button>
+          <button type="button" class="booking-filter-chip" data-bfilter="grooming" role="tab" aria-selected="false">
+            Grooming
+          </button>
+        </div>
+
+        <!-- Services Selection Cards Grid -->
+        <div class="booking-cards-grid" id="bookingCardsGrid" role="radiogroup" aria-label="Available veterinary services">
+          
+          <!-- Card: Wellness -->
+          <div class="booking-service-card" data-service="wellness" data-category="wellness" role="radio" aria-checked="false" tabindex="0">
+            <div class="booking-card-media">
+              <img src="assets/images/service-wellness.jpg" alt="Health and Wellness Exam" loading="lazy">
+              <span class="booking-card-cat">Wellness</span>
+              <div class="booking-radio-circle">
+                <span class="radio-inner-dot"></span>
+              </div>
+            </div>
+            <div class="booking-card-body">
+              <div class="booking-card-meta">
+                <span class="booking-price-tag">From TZS 35,000</span>
+                <span class="booking-duration-tag">30-45 mins</span>
+              </div>
+              <h3 class="booking-card-title">Health &amp; Wellness Exam</h3>
+              <p class="booking-card-desc">
+                Nose-to-tail checkup to assess vital signs, coat, eyes, ears, heart, and general longevity.
+              </p>
+              <ul class="booking-feature-list">
+                <li><span>&#10003;</span> Complete physical exam &amp; vitals</li>
+                <li><span>&#10003;</span> Tailored weight &amp; nutrition advice</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card: Vaccines -->
+          <div class="booking-service-card" data-service="vaccines" data-category="vaccines" role="radio" aria-checked="false" tabindex="0">
+            <div class="booking-card-media">
+              <img src="assets/images/service-vaccine.jpg" alt="Vaccines and Prevention" loading="lazy">
+              <span class="booking-card-cat">Prevention</span>
+              <div class="booking-radio-circle">
+                <span class="radio-inner-dot"></span>
+              </div>
+            </div>
+            <div class="booking-card-body">
+              <div class="booking-card-meta">
+                <span class="booking-price-tag">From TZS 45,000</span>
+                <span class="booking-duration-tag">20-30 mins</span>
+              </div>
+              <h3 class="booking-card-title">Vaccines &amp; Prevention</h3>
+              <p class="booking-card-desc">
+                Core viral boosters, official rabies certificate, deworming, and tick/flea defense.
+              </p>
+              <ul class="booking-feature-list">
+                <li><span>&#10003;</span> Core viral booster (DHLPP / FVRCP)</li>
+                <li><span>&#10003;</span> Official Rabies immunization certificate</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card: Dental -->
+          <div class="booking-service-card" data-service="dental" data-category="dental" role="radio" aria-checked="false" tabindex="0">
+            <div class="booking-card-media">
+              <img src="assets/images/service-dental.jpg" alt="Dental Care and Hygiene" loading="lazy">
+              <span class="booking-card-cat">Dental</span>
+              <div class="booking-radio-circle">
+                <span class="radio-inner-dot"></span>
+              </div>
+            </div>
+            <div class="booking-card-body">
+              <div class="booking-card-meta">
+                <span class="booking-price-tag">From TZS 50,000</span>
+                <span class="booking-duration-tag">45-60 mins</span>
+              </div>
+              <h3 class="booking-card-title">Dental Care &amp; Hygiene</h3>
+              <p class="booking-card-desc">
+                Ultrasonic scaling, tooth polishing, and gingivitis care for fresh breath and comfort.
+              </p>
+              <ul class="booking-feature-list">
+                <li><span>&#10003;</span> Ultrasonic tartar &amp; plaque scaling</li>
+                <li><span>&#10003;</span> Oral hygiene &amp; gingivitis exam</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card: Diagnostics -->
+          <div class="booking-service-card" data-service="diagnostics" data-category="diagnostics" role="radio" aria-checked="false" tabindex="0">
+            <div class="booking-card-media">
+              <img src="assets/images/service-diagnostics.jpg" alt="Ultrasound and Lab Tests" loading="lazy">
+              <span class="booking-card-cat">Diagnostics</span>
+              <div class="booking-radio-circle">
+                <span class="radio-inner-dot"></span>
+              </div>
+            </div>
+            <div class="booking-card-body">
+              <div class="booking-card-meta">
+                <span class="booking-price-tag">From TZS 60,000</span>
+                <span class="booking-duration-tag">30-60 mins</span>
+              </div>
+              <h3 class="booking-card-title">Ultrasound &amp; Lab Tests</h3>
+              <p class="booking-card-desc">
+                High-precision in-house ultrasound scanning and rapid complete blood chemistry panels.
+              </p>
+              <ul class="booking-feature-list">
+                <li><span>&#10003;</span> Abdominal ultrasound scan</li>
+                <li><span>&#10003;</span> Rapid CBC &amp; tick-borne parasite blood test</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card: Grooming -->
+          <div class="booking-service-card" data-service="grooming" data-category="grooming" role="radio" aria-checked="false" tabindex="0">
+            <div class="booking-card-media">
+              <img src="assets/images/service-grooming.jpg" alt="Medicated Pet Grooming" loading="lazy">
+              <span class="booking-card-cat">Grooming</span>
+              <div class="booking-radio-circle">
+                <span class="radio-inner-dot"></span>
+              </div>
+            </div>
+            <div class="booking-card-body">
+              <div class="booking-card-meta">
+                <span class="booking-price-tag">From TZS 40,000</span>
+                <span class="booking-duration-tag">45-75 mins</span>
+              </div>
+              <h3 class="booking-card-title">Medicated Pet Grooming</h3>
+              <p class="booking-card-desc">
+                Soothing medicated baths, anti-flea dips, ear canal hygiene, and safe nail trimming.
+              </p>
+              <ul class="booking-feature-list">
+                <li><span>&#10003;</span> Medicated skin bath &amp; parasite dip</li>
+                <li><span>&#10003;</span> Ear cleansing, nail trim &amp; sanitary hygiene</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Bottom Sticky Selection Dock -->
+    <footer class="booking-sticky-dock">
+      <div class="container booking-dock-content">
+        <div class="dock-summary" id="dockServiceSummary">
+          <span class="dock-hint-tag">SELECTED CARE PLAN</span>
+          <div class="dock-summary-text" id="dockSummaryText">
+            Please click on a service above to continue
+          </div>
+        </div>
+        <div class="dock-actions">
+          <button type="button" class="btn-outline dock-back-btn" id="cancelBookingStep1">
+            Back to Site
+          </button>
+          <button type="button" class="btn-terracotta dock-next-btn" id="confirmServiceBtn" disabled>
+            <span>Confirm &amp; Choose Date / Time</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================================================
+       FULLSCREEN BOOKING MODAL 2: DATE & TIME SLOTS (DEDICATED PAGE)
+       ========================================================================== -->
+  <div class="fullscreen-booking-modal" id="bookingDateTimeModal" role="dialog" aria-modal="true" aria-labelledby="bookingModal2Heading" aria-hidden="true">
+    <!-- Modal Sticky Top Bar -->
+    <header class="booking-portal-header">
+      <div class="container booking-header-flex">
+        <div class="booking-header-nav-left">
+          <button type="button" class="btn-portal-back" id="backToServicesBtn" aria-label="Go back to service selection">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>&larr; Back to Services</span>
+          </button>
+        </div>
+
+        <!-- Stepper Indicator (4 Steps) -->
+        <div class="booking-stepper-track" aria-label="Booking Progress">
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Service</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item active">
+            <span class="step-badge">2</span>
+            <span class="step-title">Date &amp; Time</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">3</span>
+            <span class="step-title">Pet Info</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">4</span>
+            <span class="step-title">Confirmed</span>
+          </div>
+        </div>
+
+        <!-- Close / Exit Button -->
+        <button type="button" class="btn-portal-exit" id="closeBookingModal2" aria-label="Close booking and return to website">
+          <span>Exit</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Modal Page Content -->
+    <main class="booking-portal-main">
+      <div class="container booking-portal-container datetime-focused-container">
+        
+        <!-- Header Banner -->
+        <div class="booking-hero-headline">
+          <div class="booking-eyebrow-pill">STEP 2 OF 3 &bull; CLINIC SCHEDULE</div>
+          <h1 class="booking-page-title" id="bookingModal2Heading">
+            Choose Appointment Date &amp; Time
+          </h1>
+          <p class="booking-page-desc">
+            Select your preferred day and arrival window. Our Migombani St branch operates with minimal wait times for scheduled slots.
+          </p>
+        </div>
+
+        <!-- Chosen Service Mini Banner -->
+        <div class="selected-service-pill-banner" id="activeServiceBanner">
+          <div class="pill-banner-left">
+            <div class="pill-banner-icon">&#128062;</div>
+            <div>
+              <span class="pill-banner-eyebrow">CHOSEN CARE PLAN</span>
+              <h3 class="pill-banner-title" id="bannerServiceTitle">Health &amp; Wellness Exam</h3>
+              <div class="pill-banner-meta" id="bannerServiceMeta">From TZS 35,000 &bull; 30 - 45 Minutes</div>
+            </div>
+          </div>
+          <button type="button" class="pill-banner-change-btn" id="bannerChangeServiceBtn">
+            Change service &rarr;
+          </button>
+        </div>
+
+        <!-- Dedicated Scheduling Cards (Full Width, Centered, Spacious) -->
+        <div class="datetime-cards-stack">
+          
+          <!-- Card 1: 7-Day Date Picker -->
+          <div class="schedule-card-panel">
+            <div class="schedule-panel-header">
+              <span class="panel-step-num">1</span>
+              <div>
+                <h2 class="schedule-panel-title">Select Appointment Date</h2>
+                <p class="schedule-panel-sub">Upcoming 7 clinic days (including today). Click any day to select.</p>
+              </div>
+            </div>
+
+            <!-- 7-Day Clean Grid Ribbon -->
+            <div class="date-ribbon-wrapper">
+              <div class="date-ribbon-7days" id="dateRibbonTrack" role="radiogroup" aria-label="Appointment dates (7 days)">
+                <!-- Generated dynamically in JavaScript (7 cards only) -->
+              </div>
+            </div>
+
+            <!-- Manual / Specific Date picker -->
+            <div class="manual-date-picker-row">
+              <label for="bookingCustomDate" class="manual-date-label">Need a later date? Pick from calendar:</label>
+              <input type="date" id="bookingCustomDate" class="manual-date-input" aria-label="Select custom appointment date">
+            </div>
+          </div>
+
+          <!-- Card 2: Time Slots -->
+          <div class="schedule-card-panel">
+            <div class="schedule-panel-header">
+              <span class="panel-step-num">2</span>
+              <div>
+                <h3 class="schedule-panel-title">Choose Time Slot</h3>
+                <p class="schedule-panel-sub">Clinic hours: Monday &ndash; Saturday (8:00 AM &ndash; 7:00 PM). Emergency on-call on Sunday.</p>
+              </div>
+            </div>
+
+            <!-- Morning Slots -->
+            <div class="time-period-group">
+              <div class="time-period-heading">
+                <span>🌅 Morning (8:00 AM &ndash; 12:00 PM)</span>
+              </div>
+              <div class="time-slots-grid" id="morningSlotsGrid" role="radiogroup" aria-label="Morning appointment time slots">
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+
+            <!-- Afternoon Slots -->
+            <div class="time-period-group">
+              <div class="time-period-heading">
+                <span>☀️ Afternoon (12:00 PM &ndash; 4:00 PM)</span>
+              </div>
+              <div class="time-slots-grid" id="afternoonSlotsGrid" role="radiogroup" aria-label="Afternoon appointment time slots">
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+
+            <!-- Evening Slots -->
+            <div class="time-period-group">
+              <div class="time-period-heading">
+                <span>🌆 Evening (4:00 PM &ndash; 7:00 PM)</span>
+              </div>
+              <div class="time-slots-grid" id="eveningSlotsGrid" role="radiogroup" aria-label="Evening appointment time slots">
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Bottom Sticky Selection Dock for Step 2 -->
+    <footer class="booking-sticky-dock">
+      <div class="container booking-dock-content">
+        <div class="dock-summary">
+          <span class="dock-hint-tag">SELECTED SCHEDULE</span>
+          <div class="dock-summary-text" id="dockDateTimeSummary">
+            <span id="dockSelectedDateTimeText">Please pick a date &amp; time</span>
+          </div>
+        </div>
+        <div class="dock-actions">
+          <button type="button" class="btn-outline dock-back-btn" id="backToServicesFromDateBtn">
+            &larr; Back to Services
+          </button>
+          <button type="button" class="btn-terracotta dock-next-btn" id="continueToPatientBtn">
+            <span>Continue to Pet &amp; Guardian Info</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================================================
+       FULLSCREEN BOOKING MODAL 3: PET & GUARDIAN INFO (DEDICATED PAGE)
+       ========================================================================== -->
+  <div class="fullscreen-booking-modal" id="bookingPatientModal" role="dialog" aria-modal="true" aria-labelledby="bookingModal3Heading" aria-hidden="true">
+    <!-- Modal Sticky Top Bar -->
+    <header class="booking-portal-header">
+      <div class="container booking-header-flex">
+        <div class="booking-header-nav-left">
+          <button type="button" class="btn-portal-back" id="backToDateTimeBtn" aria-label="Go back to date and time selection">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>&larr; Back to Date &amp; Time</span>
+          </button>
+        </div>
+
+        <!-- Stepper Indicator (4 Steps) -->
+        <div class="booking-stepper-track" aria-label="Booking Progress">
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Service</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Date &amp; Time</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item active">
+            <span class="step-badge">3</span>
+            <span class="step-title">Pet Info</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="booking-step-item">
+            <span class="step-badge">4</span>
+            <span class="step-title">Confirmed</span>
+          </div>
+        </div>
+
+        <!-- Close / Exit Button -->
+        <button type="button" class="btn-portal-exit" id="closeBookingModal3" aria-label="Close booking and return to website">
+          <span>Exit</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Modal Page Content -->
+    <main class="booking-portal-main">
+      <div class="container booking-portal-container patient-page-container">
+        
+        <!-- Header Banner -->
+        <div class="booking-hero-headline">
+          <div class="booking-eyebrow-pill">STEP 3 OF 3 &bull; PET &amp; GUARDIAN DETAILS</div>
+          <h1 class="booking-page-title" id="bookingModal3Heading">
+            Tell us about your companion
+          </h1>
+          <p class="booking-page-desc">
+            Help our veterinary team prepare for your appointment. No prepayment needed &bull; pay directly at the clinic.
+          </p>
+        </div>
+
+        <!-- 2-Column Spacious Patient Page Layout -->
+        <div class="patient-page-grid">
+          
+          <!-- Column 1: The Form -->
+          <div class="patient-form-card">
+            <div class="patient-card-header">
+              <span class="panel-step-num">3</span>
+              <div>
+                <h2 class="schedule-panel-title">Pet &amp; Guardian Info</h2>
+                <p class="schedule-panel-sub">We'll send your appointment pass and reminder to your contact number.</p>
+              </div>
+            </div>
+
+            <form id="bookingDetailsForm" class="booking-info-form" novalidate>
+              <div class="form-field-group">
+                <label for="guardianName" class="form-field-label">Pet Parent / Guardian Full Name <span class="req">*</span></label>
+                <input type="text" id="guardianName" class="form-field-input" placeholder="e.g. Amina Kassim" required>
+              </div>
+
+              <div class="form-field-group">
+                <label for="guardianPhone" class="form-field-label">WhatsApp / Phone Number <span class="req">*</span></label>
+                <input type="tel" id="guardianPhone" class="form-field-input" placeholder="e.g. +255 712 345 678" required>
+                <span class="form-field-hint">We'll send your instant booking reminder and confirmation here</span>
+              </div>
+
+              <div class="form-fields-2col">
+                <div class="form-field-group">
+                  <label for="petName" class="form-field-label">Pet's Name <span class="req">*</span></label>
+                  <input type="text" id="petName" class="form-field-input" placeholder="e.g. Simba" required>
+                </div>
+                <div class="form-field-group">
+                  <label for="petType" class="form-field-label">Species <span class="req">*</span></label>
+                  <select id="petType" class="form-field-select" required>
+                    <option value="Dog">Dog 🐕</option>
+                    <option value="Cat">Cat 🐈</option>
+                    <option value="Puppy">Puppy 🐶</option>
+                    <option value="Kitten">Kitten 🐱</option>
+                    <option value="Other">Other 🐾</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <label for="visitNotes" class="form-field-label">Symptoms or Special Requests (Optional)</label>
+                <textarea id="visitNotes" class="form-field-textarea" rows="3" placeholder="e.g. Routine checkup, or pet has been scratching ears recently..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-terracotta btn-complete-booking" id="submitBookingBtn">
+                <span>Confirm Appointment &rarr;</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Column 2: Appointment Summary Card -->
+          <div class="patient-summary-column">
+            <div class="patient-summary-card">
+              <div class="summary-card-header">
+                <div class="summary-card-badge">&#128062;</div>
+                <div>
+                  <span class="summary-eyebrow">RESERVATION PREVIEW</span>
+                  <h3 class="summary-card-title">Appointment Summary</h3>
+                </div>
+              </div>
+
+              <div class="summary-item-list">
+                <div class="summary-item-row">
+                  <span class="summary-key">Care Plan:</span>
+                  <span class="summary-val bold" id="snapServiceTitle">Health &amp; Wellness Exam</span>
+                </div>
+                <div class="summary-item-row">
+                  <span class="summary-key">Date:</span>
+                  <span class="summary-val highlight" id="snapDateText">Please pick a date</span>
+                </div>
+                <div class="summary-item-row">
+                  <span class="summary-key">Time Slot:</span>
+                  <span class="summary-val highlight" id="snapTimeText">Please pick a time</span>
+                </div>
+                <div class="summary-item-row">
+                  <span class="summary-key">Clinic Location:</span>
+                  <span class="summary-val">Vet Care LTD, Migombani St</span>
+                </div>
+              </div>
+
+              <div class="summary-card-divider"></div>
+
+              <div class="live-summary-price-row">
+                <span class="price-title">Starting Consultation</span>
+                <span class="live-price-figure" id="snapPriceText">From TZS 35,000</span>
+              </div>
+              <div class="summary-card-note">
+                Direct in-clinic payment upon examination &bull; Free cancellation or rescheduling
+              </div>
+
+              <div class="summary-edit-links">
+                <button type="button" class="btn-edit-step" id="editServiceStepBtn">Change care service &rarr;</button>
+                <button type="button" class="btn-edit-step" id="editDateTimeStepBtn">Change date / time &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       FULLSCREEN BOOKING MODAL 4: CONFIRMATION SUCCESS (PAGE-FEEL MODAL)
+       ========================================================================== -->
+  <div class="fullscreen-booking-modal" id="bookingConfirmedModal" role="dialog" aria-modal="true" aria-labelledby="bookingConfirmedHeading" aria-hidden="true">
+    <!-- Modal Sticky Top Bar -->
+    <header class="booking-portal-header">
+      <div class="container booking-header-flex">
+        <div class="booking-portal-brand">
+          <img src="assets/images/logo.png" alt="Vet Care LTD" class="booking-portal-logo">
+          <div>
+            <div class="booking-brand-title">Vet Care LTD</div>
+            <div class="booking-brand-sub">Appointment Desk Confirmed</div>
+          </div>
+        </div>
+
+        <!-- Stepper Indicator (4 Steps) -->
+        <div class="booking-stepper-track" aria-label="Booking Progress">
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Service</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Date &amp; Time</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item completed">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Pet Info</span>
+          </div>
+          <div class="step-connector active"></div>
+          <div class="booking-step-item active">
+            <span class="step-badge">&#10003;</span>
+            <span class="step-title">Confirmed</span>
+          </div>
+        </div>
+
+        <!-- Close / Exit Button -->
+        <button type="button" class="btn-portal-exit" id="closeBookingConfirmed" aria-label="Close and return to website">
+          <span>Done &amp; Exit</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Modal Page Content -->
+    <main class="booking-portal-main">
+      <div class="container booking-portal-container confirmed-page-wrap">
+        
+        <!-- Celebration Animation Hero -->
+        <div class="confirmed-celebration-hero">
+          <div class="confirmed-icon-circle">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="confirmed-status-pill">&#10003; APPOINTMENT SCHEDULED</div>
+          <h1 class="confirmed-hero-title" id="bookingConfirmedHeading">
+            Booking Confirmed!
+          </h1>
+          <p class="confirmed-hero-desc">
+            We look forward to seeing <strong id="confPetNameDisplay">your pet</strong>! Your appointment has been successfully reserved with the veterinary team at Vet Care LTD.
+          </p>
+        </div>
+
+        <!-- Official Clinic Pass Card -->
+        <div class="clinic-appointment-pass">
+          <div class="pass-card-top">
+            <div class="pass-brand-info">
+              <span class="pass-official-label">OFFICIAL APPOINTMENT PASS</span>
+              <h2 class="pass-clinic-title">Vet Care LTD &bull; Mikocheni Clinic</h2>
+              <span class="pass-location-text">Migombani St, Mikocheni, Dar es Salaam</span>
+            </div>
+            <div class="pass-ref-badge">
+              <span class="pass-ref-title">BOOKING REFERENCE</span>
+              <span class="pass-ref-code" id="confReferenceCode">#VCL-2026-8419</span>
+            </div>
+          </div>
+
+          <div class="pass-details-grid">
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">CARE SERVICE</span>
+              <span class="pass-cell-val" id="confServiceTitle">Health &amp; Wellness Exam</span>
+            </div>
+
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">APPOINTMENT SCHEDULE</span>
+              <span class="pass-cell-val highlight" id="confDateTime">Saturday, Oct 10, 2026 at 10:00 AM</span>
+            </div>
+
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">PATIENT &amp; GUARDIAN</span>
+              <span class="pass-cell-val" id="confPatientGuardian">Simba (Dog) &bull; Amina Kassim</span>
+            </div>
+
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">ESTIMATED FEE</span>
+              <span class="pass-cell-val" id="confDurationPrice">From TZS 35,000 (30 - 45 Mins)</span>
+            </div>
+
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">CONTACT PHONE</span>
+              <span class="pass-cell-val" id="confPhone">+255 712 345 678</span>
+            </div>
+
+            <div class="pass-detail-cell">
+              <span class="pass-cell-label">PAYMENT METHOD</span>
+              <span class="pass-cell-val tag-unpaid">Direct in-clinic payment upon examination</span>
+            </div>
+          </div>
+
+          <div class="pass-card-instructions">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <p>
+              Please arrive 5&ndash;10 minutes early. For safety and peace of mind, dogs should be on a leash and cats in a secure carrier. Need to adjust your time? Call or WhatsApp us at +255 713 325 000.
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="confirmed-action-buttons">
+          <a href="#" id="confWhatsAppSyncBtn" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-chat pass-action-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.08c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.13 8.13 0 0 1-1.25-4.31c0-4.51 3.67-8.18 8.19-8.18 2.19 0 4.24.85 5.79 2.4 1.55 1.55 2.4 3.6 2.4 5.79 0 4.52-3.68 8.16-8.19 8.16zm4.49-6.13c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.53.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+            </svg>
+            Send Pass to Clinic WhatsApp
+          </a>
+
+          <a href="#" id="confGoogleCalBtn" target="_blank" rel="noopener noreferrer" class="btn-outline pass-action-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Add to Google Calendar
+          </a>
+
+          <button type="button" class="btn-terracotta pass-action-btn" id="confDoneBtn">
+            Done &bull; Return to Website &rarr;
+          </button>
+        </div>
+
+      </div>
+    </main>
   </div>
 
   <!-- Interactive JavaScript logic -->
