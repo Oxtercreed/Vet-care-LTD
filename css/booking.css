@@ -12,7 +12,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1310,7 +1309,6 @@
     overflow-x: auto;
     gap: 0.65rem;
     padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
     box-sizing: border-box;
   }
@@ -1494,8 +1492,6 @@
     flex-wrap: nowrap;
     padding-bottom: 0.35rem;
     width: 100%;
-    box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
   }
 
   .booking-filter-chip {
@@ -1559,7 +1555,6 @@
     padding-bottom: 0.45rem;
     width: 100%;
     box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
   }
 
