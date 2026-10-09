@@ -27,6 +27,7 @@
   width: 100%;
   max-width: 660px;
   max-height: 90vh;
+  max-height: 90dvh;
   background-color: #FAF8F3;
   border-radius: 28px;
   overflow: hidden;
@@ -407,12 +408,13 @@
 
 @media (max-width: 480px) {
   .service-modal-overlay {
-    padding: 0.45rem;
+    padding: 0.45rem 0.45rem calc(0.45rem + env(safe-area-inset-bottom, 8px));
   }
 
   .service-modal-box {
     border-radius: 20px 20px 14px 14px;
     max-height: 92vh;
+    max-height: 92dvh;
   }
 
   .modal-content-body {
