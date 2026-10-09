@@ -1,0 +1,13 @@
+{
+  "name": "vet-care-ltd",
+  "version": "1.0.0",
+  "description": "Vet Care LTD - Thoughtful Veterinary Care Website",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Vet Care LTD",
+  "license": "ISC"
+}
