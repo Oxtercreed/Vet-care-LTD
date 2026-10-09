@@ -250,8 +250,8 @@
 }
 
 /* ==========================================================================
-
-/* Service Modal Mobile Responsiveness */
+   Service Modal Mobile Responsiveness
+   ========================================================================== */
 @media (max-width: 960px) {
   .service-modal-overlay {
     padding: 0.75rem;
