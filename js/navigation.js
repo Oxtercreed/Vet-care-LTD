@@ -63,3 +63,22 @@ function initSmoothScrollAndActiveNav() {
     });
   });
 }
+
+/**
+ * Dynamic Scrolled State for Floating Frosted Overlay Navbar
+ */
+function initScrolledNavbar() {
+  const siteNavbar = document.getElementById('siteNavbar');
+  if (!siteNavbar) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      siteNavbar.classList.add('scrolled');
+    } else {
+      siteNavbar.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+}

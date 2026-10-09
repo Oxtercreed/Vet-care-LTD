@@ -17,5 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof initServiceModal === 'function') initServiceModal();
   if (typeof initFaqAccordion === 'function') initFaqAccordion();
   if (typeof initSmoothScrollAndActiveNav === 'function') initSmoothScrollAndActiveNav();
+  if (typeof initScrolledNavbar === 'function') initScrolledNavbar();
   if (typeof initFullscreenBookingSystem === 'function') initFullscreenBookingSystem();
 });
