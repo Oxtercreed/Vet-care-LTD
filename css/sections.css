@@ -343,7 +343,6 @@
   overflow-x: auto;
   padding-bottom: 0.35rem;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
 }
 
 .services-filter-pills::-webkit-scrollbar {
@@ -660,6 +659,7 @@
   color: var(--text-light-muted);
   max-width: 580px;
 }
+
 
 /* ==========================================================================
    SECTION 3: "OUR APPROACH" (GOOD CARE STARTS WITH LISTENING)
