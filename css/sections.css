@@ -2,7 +2,7 @@
    SECTION 1: HERO (CARE THEY CAN FEEL)
    ========================================================================== */
 .hero-section {
-  padding: 5.5rem 0 6rem;
+  padding: 6.75rem 0 5.5rem;
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at 10% 40%, rgba(229, 169, 75, 0.08), transparent 45%),
@@ -25,12 +25,11 @@
   color: var(--dark-forest);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  padding: 0.45rem 1.15rem 0.45rem 0.95rem;
+  padding: 0.42rem 1.05rem 0.42rem 0.85rem;
   background: rgba(20, 56, 44, 0.05);
   border: 1px solid rgba(20, 56, 44, 0.12);
   border-radius: var(--radius-full);
-  margin-top: 0.75rem;
-  margin-bottom: 1.85rem;
+  margin-bottom: 1.4rem;
   box-shadow: 0 1px 3px rgba(20, 56, 44, 0.04);
 }
 
@@ -1228,7 +1227,7 @@ a.visit-detail-item:hover .visit-detail-text {
     background-size: cover;
     background-position: center 10%;
     background-repeat: no-repeat;
-    padding: 4.25rem 0 4.5rem;
+    padding: 5.5rem 0 4.5rem;
   }
 
   .hero-grid {
