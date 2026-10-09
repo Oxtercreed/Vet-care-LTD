@@ -1,7 +1,8 @@
+/* ==========================================================================
    SECTION 1: HERO (CARE THEY CAN FEEL)
    ========================================================================== */
 .hero-section {
-  padding: 5rem 0 6rem;
+  padding: 5.5rem 0 6rem;
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at 10% 40%, rgba(229, 169, 75, 0.08), transparent 45%),
@@ -18,13 +19,19 @@
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.78rem;
+  gap: 0.65rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--dark-forest);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  margin-bottom: 1.5rem;
+  padding: 0.45rem 1.15rem 0.45rem 0.95rem;
+  background: rgba(20, 56, 44, 0.05);
+  border: 1px solid rgba(20, 56, 44, 0.12);
+  border-radius: var(--radius-full);
+  margin-top: 0.75rem;
+  margin-bottom: 1.85rem;
+  box-shadow: 0 1px 3px rgba(20, 56, 44, 0.04);
 }
 
 .hero-eyebrow .dot {
@@ -32,6 +39,7 @@
   height: 7px;
   border-radius: 50%;
   background-color: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(196, 100, 62, 0.18);
 }
 
 .hero-title {
@@ -654,7 +662,7 @@
   max-width: 580px;
 }
 
-
+/* ==========================================================================
    SECTION 3: "OUR APPROACH" (GOOD CARE STARTS WITH LISTENING)
    ========================================================================== */
 .approach-section {
@@ -1205,7 +1213,6 @@ a.visit-detail-item:hover .visit-detail-text {
 }
 
 /* ==========================================================================
-
    RESPONSIVENESS (MOBILE & TABLET)
    ========================================================================== */
 @media (max-width: 960px) {
@@ -1217,11 +1224,11 @@ a.visit-detail-item:hover .visit-detail-text {
         rgba(250, 248, 243, 0.80) 0%, 
         rgba(250, 248, 243, 0.88) 50%, 
         rgba(250, 248, 243, 0.97) 100%),
-      url('assets/images/figma-hero-dog.jpg');
+      url('../assets/images/figma-hero-dog.jpg');
     background-size: cover;
     background-position: center 10%;
     background-repeat: no-repeat;
-    padding: 3.75rem 0 4.5rem;
+    padding: 4.25rem 0 4.5rem;
   }
 
   .hero-grid {
@@ -1299,111 +1306,6 @@ a.visit-detail-item:hover .visit-detail-text {
   .approach-title,
   .visit-title {
     font-size: 2.25rem;
-  }
-
-  /* Sleek, Single-Row Mobile Navbar */
-  .navbar {
-    padding: 0.85rem 0;
-    position: sticky;
-    top: 0;
-    background: rgba(250, 248, 243, 0.96);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(232, 226, 217, 0.85);
-    z-index: 100;
-  }
-
-  .navbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 0.75rem;
-    position: relative;
-  }
-
-  .brand-logo-img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 1.05rem;
-  }
-
-  .brand-tag {
-    font-size: 0.6rem;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    flex-shrink: 0;
-  }
-
-  .nav-cta {
-    padding: 0.5rem 1rem;
-    font-size: 0.82rem;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-
-  /* Mobile Dropdown Nav Menu */
-  .nav-menu {
-    position: absolute;
-    top: calc(100% + 0.85rem);
-    left: -1.25rem;
-    right: -1.25rem;
-    background: rgba(250, 248, 243, 0.98);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(232, 226, 217, 0.85);
-    box-shadow: 0 16px 32px rgba(20, 56, 44, 0.1);
-    padding: 0 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 99;
-  }
-
-  .nav-menu.mobile-open {
-    max-height: 240px;
-    opacity: 1;
-    visibility: visible;
-    padding: 1rem 1.5rem 1.35rem;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    width: 100%;
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .nav-links li {
-    width: 100%;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark-forest);
-    display: block;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(232, 226, 217, 0.6);
-    width: 100%;
-  }
-
-  .nav-links li:last-child .nav-link {
-    border-bottom: none;
   }
 
   /* Services Section & Mobile Carousel */
@@ -1842,4 +1744,3 @@ a.visit-detail-item:hover .visit-detail-text {
 .footer-book-btn:hover {
   color: var(--terracotta);
 }
-
