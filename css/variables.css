@@ -1,0 +1,160 @@
+/* ==========================================================================
+   VET CARE LTD - FIGMA DESIGN SYSTEM
+   Exact recreation of Figma Editorial & Warm Clinic Aesthetic
+   ========================================================================== */
+
+:root {
+  /* Brand Palette from Figma */
+  --bg-cream: #FAF8F3;
+  --bg-sage: #DCECE3;
+  --bg-sage-light: #EBF4EF;
+  --dark-forest: #14382C;
+  --dark-forest-hover: #0e2920;
+  --dark-forest-card: rgba(255, 255, 255, 0.035);
+  --dark-forest-border: rgba(255, 255, 255, 0.09);
+
+  --terracotta: #C4643E;
+  --terracotta-hover: #b05632;
+  --terracotta-light: rgba(196, 100, 62, 0.12);
+
+  --mustard-gold: #E5A94B;
+  --mustard-gold-shadow: rgba(229, 169, 75, 0.35);
+
+  --text-main: #14382C;
+  --text-muted: #52605B;
+  --text-dark-sub: #4A5568;
+  --text-light: #FAF8F3;
+  --text-light-muted: #A3BFB4;
+  --text-light-sub: #D1E0DA;
+
+  --border-light: #E8E2D9;
+  --white: #FFFFFF;
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Radius & Transitions */
+  --radius-full: 9999px;
+  --radius-xl: 36px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cream);
+  color: var(--text-muted);
+  line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+
+/* Common Button Styles */
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.75rem;
+}
+
+.btn-terracotta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 0.88rem 1.85rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(196, 100, 62, 0.28);
+  transition: var(--transition);
+}
+
+.btn-terracotta:hover {
+  background-color: var(--terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 100, 62, 0.38);
+}
+
+.btn-whatsapp-chat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #25D366;
+  color: var(--white);
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 0.88rem 1.85rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+}
+
+.btn-whatsapp-chat:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: transparent;
+  color: var(--dark-forest);
+  border: 1px solid rgba(20, 56, 44, 0.25);
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 0.85rem 1.65rem;
