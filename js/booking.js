@@ -1,6 +1,11 @@
-window.openBookingServiceModal = window.openBookingServiceModal || function(serviceKey) {
-  if (typeof initFullscreenBookingSystem === 'function') {
+let _bookingSystemInitialized = false;
+
+window.openBookingServiceModal = function(serviceKey) {
+  if (!_bookingSystemInitialized && typeof initFullscreenBookingSystem === 'function') {
     initFullscreenBookingSystem();
+  }
+  if (window._openBookingServiceModalInternal) {
+    window._openBookingServiceModalInternal(serviceKey);
   }
 };
 
@@ -11,6 +16,8 @@ window.openBookingServiceModal = window.openBookingServiceModal || function(serv
  * ==========================================================================
  */
 function initFullscreenBookingSystem() {
+  if (_bookingSystemInitialized) return;
+  _bookingSystemInitialized = true;
   // Elements for Modal 1 (Choose Service)
   const modal1 = document.getElementById('bookingServiceModal');
   const closeBtn1 = document.getElementById('closeBookingModal1');
@@ -120,7 +127,7 @@ function initFullscreenBookingSystem() {
   }
 
   // Globally accessible entrypoint to start booking flow
-  window.openBookingServiceModal = function(serviceKey) {
+  window._openBookingServiceModalInternal = function(serviceKey) {
     hideModal(modal2);
     hideModal(modal3);
     hideModal(modal4);
@@ -131,6 +138,7 @@ function initFullscreenBookingSystem() {
 
     if (closeBtn1) closeBtn1.focus();
   };
+  window.openBookingServiceModal = window._openBookingServiceModalInternal;
 
   // Select service card in Modal 1
   function selectServiceCard(key) {
@@ -655,7 +663,7 @@ function initFullscreenBookingSystem() {
 
   // Delegated fallback listener for any booking button, card action, or anchor
   document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('#heroBookBtn, #navBookBtn, #ratingBannerBookBtn, #footerBookBtn, #mobileNavBookBtn, a[href="#booking"], button[data-booking-trigger]');
+    const trigger = e.target.closest('#heroBookBtn, #navBookBtn, #ratingBannerBookBtn, #footerBookBtn, #mobileNavBookBtn, a[href="#booking"], button[data-booking-trigger], .nav-book-cta, .rating-banner-btn, .footer-book-btn');
     if (trigger) {
       e.preventDefault();
       e.stopPropagation();
@@ -680,4 +688,11 @@ function initFullscreenBookingSystem() {
       }
     }
   });
+}
+
+// Auto-initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFullscreenBookingSystem);
+} else {
+  initFullscreenBookingSystem();
 }
