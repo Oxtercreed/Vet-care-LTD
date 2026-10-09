@@ -1,4 +1,8 @@
-let openBookingServiceModal;
+window.openBookingServiceModal = window.openBookingServiceModal || function(serviceKey) {
+  if (typeof initFullscreenBookingSystem === 'function') {
+    initFullscreenBookingSystem();
+  }
+};
 
 /**
  * ==========================================================================
@@ -116,7 +120,7 @@ function initFullscreenBookingSystem() {
   }
 
   // Globally accessible entrypoint to start booking flow
-  openBookingServiceModal = function(serviceKey) {
+  window.openBookingServiceModal = function(serviceKey) {
     hideModal(modal2);
     hideModal(modal3);
     hideModal(modal4);
@@ -630,9 +634,37 @@ function initFullscreenBookingSystem() {
   if (footerBookBtn) {
     footerBookBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      openBookingServiceModal();
+      window.openBookingServiceModal();
     });
   }
+
+  const mobileNavBookBtn = document.getElementById('mobileNavBookBtn');
+  if (mobileNavBookBtn) {
+    mobileNavBookBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const navMenu = document.getElementById('navMenu');
+      const menuToggle = document.getElementById('menuToggle');
+      if (navMenu) navMenu.classList.remove('mobile-open');
+      if (menuToggle) {
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+      window.openBookingServiceModal();
+    });
+  }
+
+  // Delegated fallback listener for any booking button, card action, or anchor
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('#heroBookBtn, #navBookBtn, #ratingBannerBookBtn, #footerBookBtn, #mobileNavBookBtn, a[href="#booking"], button[data-booking-trigger]');
+    if (trigger) {
+      e.preventDefault();
+      e.stopPropagation();
+      const sKey = trigger.getAttribute('data-service') || 'wellness';
+      if (typeof window.openBookingServiceModal === 'function') {
+        window.openBookingServiceModal(sKey);
+      }
+    }
+  });
 
   // Global Escape key support across all 4 modals
   document.addEventListener('keydown', (e) => {
