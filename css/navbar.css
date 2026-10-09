@@ -122,6 +122,10 @@
   color: var(--dark-forest);
 }
 
+.mobile-only-nav-item {
+  display: none;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -195,10 +199,8 @@
 }
 
 /* ==========================================================================
-   MOBILE & RESPONSIVE
+   Mobile Navbar Responsiveness
    ========================================================================== */
-
-/* Mobile Navbar Responsiveness */
 @media (max-width: 768px) {
   .navbar {
     padding: 0.85rem 0;
@@ -240,6 +242,12 @@
     align-items: center;
     gap: 0.65rem;
     flex-shrink: 0;
+  }
+
+  .nav-book-cta {
+    padding: 0.52rem 1.05rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
   .nav-cta {
@@ -306,6 +314,15 @@
     border-bottom: none;
   }
 
+  .mobile-only-nav-item {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-nav-book-link {
+    color: var(--terracotta) !important;
+    font-weight: 700 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -314,4 +331,12 @@
     right: -1rem;
   }
 
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-book-cta {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
 }

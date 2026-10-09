@@ -1,17 +1,17 @@
 /* ==========================================================================
-   VET CARE LTD - DESIGN TOKENS & FOUNDATIONS
+   VET CARE LTD - FIGMA DESIGN SYSTEM
+   Exact recreation of Figma Editorial & Warm Clinic Aesthetic
    ========================================================================== */
 
 :root {
-  /* Brand Palette (Warm, Clinical, Compassionate) */
+  /* Brand Palette from Figma */
   --bg-cream: #FAF8F3;
   --bg-sage: #DCECE3;
-  --bg-sage-card: rgba(220, 236, 227, 0.45);
-
+  --bg-sage-light: #EBF4EF;
   --dark-forest: #14382C;
-  --dark-forest-hover: #0E271F;
-  --dark-forest-card: rgba(20, 56, 44, 0.95);
-  --dark-forest-border: rgba(255, 255, 255, 0.12);
+  --dark-forest-hover: #0e2920;
+  --dark-forest-card: rgba(255, 255, 255, 0.035);
+  --dark-forest-border: rgba(255, 255, 255, 0.09);
 
   --terracotta: #C4643E;
   --terracotta-hover: #b05632;
@@ -43,7 +43,7 @@
   --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base resets & typography */
+/* Base Resets */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -70,6 +70,7 @@ body {
   overflow-x: clip;
   position: relative;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 img {
@@ -89,11 +90,8 @@ button {
   border: none;
   background: none;
   cursor: pointer;
-  outline: none;
-  transition: var(--transition);
 }
 
-/* Common Layout Containers */
 .container {
   width: 100%;
   max-width: 1240px;
@@ -101,7 +99,10 @@ button {
   padding: 0 2rem;
 }
 
-/* Global Buttons & Badges */
+/* ==========================================================================
+   Common Button Styles
+   ========================================================================== */
+
 .btn-terracotta {
   display: inline-flex;
   align-items: center;
@@ -122,26 +123,6 @@ button {
   box-shadow: 0 6px 20px rgba(196, 100, 62, 0.38);
 }
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background-color: transparent;
-  color: var(--dark-forest);
-  border: 1px solid rgba(20, 56, 44, 0.25);
-  font-size: 0.96rem;
-  font-weight: 600;
-  padding: 0.85rem 1.65rem;
-  border-radius: var(--radius-full);
-  transition: var(--transition);
-}
-
-.btn-outline:hover {
-  border-color: var(--dark-forest);
-  background-color: rgba(20, 56, 44, 0.04);
-  transform: translateY(-2px);
-}
-
 .btn-whatsapp-chat {
   display: inline-flex;
   align-items: center;
@@ -160,4 +141,24 @@ button {
   background-color: #20bd5a;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: transparent;
+  color: var(--dark-forest);
+  border: 1px solid rgba(20, 56, 44, 0.25);
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+.btn-outline:hover {
+  background-color: rgba(20, 56, 44, 0.05);
+  border-color: var(--dark-forest);
+  color: var(--dark-forest);
 }
