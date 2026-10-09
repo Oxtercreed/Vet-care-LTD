@@ -11,7 +11,7 @@
  * ==========================================================================
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   if (typeof initMobileMenu === 'function') initMobileMenu();
   if (typeof initServicesShowcase === 'function') initServicesShowcase();
   if (typeof initServiceModal === 'function') initServiceModal();
@@ -19,4 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof initSmoothScrollAndActiveNav === 'function') initSmoothScrollAndActiveNav();
   if (typeof initScrolledNavbar === 'function') initScrolledNavbar();
   if (typeof initFullscreenBookingSystem === 'function') initFullscreenBookingSystem();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}

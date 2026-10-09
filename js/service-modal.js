@@ -58,7 +58,9 @@ function initServiceModal() {
   if (modalBookServiceBtn) {
     modalBookServiceBtn.addEventListener('click', () => {
       closeServiceModal();
-      openBookingServiceModal(currentActiveKey);
+      if (typeof window.openBookingServiceModal === 'function') {
+        window.openBookingServiceModal(currentActiveKey);
+      }
     });
   }
 
@@ -111,7 +113,3 @@ function initServiceModal() {
     }
   });
 }
-
-/**
- * FAQ Accordion Single Open Behavior
- */
